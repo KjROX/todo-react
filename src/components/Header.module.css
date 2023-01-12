@@ -1,0 +1,43 @@
+.titleBackground {
+  width: 100%;
+  background-image: url("../../public/images/bg-mobile-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 2rem 7rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title h1 {
+  color: white;
+  letter-spacing: 1rem;
+}
+.form {
+  width: 100%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+}
+.inputCheckBox {
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input {
+  width: 75%;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
+}
