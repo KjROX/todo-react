@@ -1,0 +1,58 @@
+.background {
+  background-color: #fafafa;
+}
+.container {
+  position: relative;
+  top: -55px;
+  padding: 0rem 2rem;
+  border-radius: 1rem;
+}
+.todos {
+  border-radius: 2rem;
+  background-color: #fafafa;
+}
+.todoListInfo {
+  background-color: white;
+  color: #9394a5;
+  width: 100%;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1), 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+.todoListInfo button {
+  color: #9394a5;
+  border: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+.todoListFunctions {
+  margin-top: 2rem;
+  background-color: white;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.todoListFunctions button {
+  color: #484b6a;
+  font-family: inherit;
+  font-weight: bold;
+}
+.todoListFunctions button:hover {
+  color: hsl(220, 98%, 61%);
+}
+.todoListFunctions button:active {
+  color: hsl(220, 98%, 61%);
+}
+.dragAndDrop {
+  color: #9394a5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
