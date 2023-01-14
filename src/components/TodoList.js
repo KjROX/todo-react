@@ -1,5 +1,6 @@
 import Todo from "./Todo";
 import classes from "./TodoList.module.css";
+import TodoListFunctions from "./TodoListFunctions";
 const TodoList = () => {
   return (
     <div className={classes.background}>
@@ -12,14 +13,11 @@ const TodoList = () => {
           <Todo />
           <div className={classes.todoListInfo}>
             <span>5 items left</span>
+            <TodoListFunctions design="web" />
             <button>Clear Completed</button>
           </div>
         </div>
-        <div className={classes.todoListFunctions}>
-          <button>All</button>
-          <button>Active</button>
-          <button>Completed</button>
-        </div>
+        <TodoListFunctions design="mobile" />
       </div>
       <span className={classes.dragAndDrop}>Drag and drop to reorder list</span>
     </div>

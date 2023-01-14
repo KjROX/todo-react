@@ -4,8 +4,10 @@ const Todo = () => {
   return (
     <div className={classes.todo}>
       <div className={classes.inputLabel}>
-        <input type="checkbox" />
-        <label>Jog around the park 3times</label>
+        <div>
+          <input type="checkbox" />
+        </div>
+        <label>Jog around the park</label>
       </div>
       <button>
         <img src="./images/icon-cross.svg" alt="" />
