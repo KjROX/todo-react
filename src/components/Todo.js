@@ -15,7 +15,7 @@ const Todo = ({ todo, todoCheckHandler, todoDeleteHandler }) => {
         <div>
           <input
             type="checkbox"
-            onClick={checkBoxClickHandler}
+            onChange={checkBoxClickHandler}
             checked={todo.isActive === false}
           />
         </div>

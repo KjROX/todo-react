@@ -4,7 +4,11 @@ import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(
+    localStorage.getItem("localTodos")
+      ? JSON.parse(localStorage.getItem("localTodos"))
+      : []
+  );
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
 
   const themeChanger = () => {
@@ -16,11 +20,6 @@ function App() {
       localStorage.setItem("theme", "darkMode");
     }
   };
-
-  useEffect(() => {
-    const localTodos = JSON.parse(localStorage.getItem("localTodos"));
-    localTodos && setTodos(localTodos);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("localTodos", JSON.stringify(todos));

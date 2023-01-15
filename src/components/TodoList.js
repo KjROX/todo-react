@@ -1,15 +1,29 @@
 import Todo from "./Todo";
 import classes from "./TodoList.module.css";
 import TodoListFunctions from "./TodoListFunctions";
+import { useState } from "react";
 const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
   const numberOfActiveTodos = todos.filter(
     (todo) => todo.isActive === true
   ).length;
+
+  const [showTodos, setShowTodos] = useState(todos);
+
+  const displayTodoHandler = (type) => {
+    if (type === "all") {
+      setShowTodos(todos);
+    } else if (type === "active") {
+      setShowTodos(todos.filter((todo) => todo.isActive === true));
+    } else {
+      setShowTodos(todos.filter((todo) => todo.isActive === false));
+    }
+  };
+
   return (
     <div className={classes.background}>
       <div className={classes.container}>
         <div className={classes.todos}>
-          {todos.map((todo) => (
+          {showTodos.map((todo) => (
             <Todo
               key={todo.id}
               todo={todo}
@@ -25,7 +39,10 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
                   {numberOfActiveTodos > 1 ? " items " : " item "}
                   left
                 </span>
-                <TodoListFunctions design="web" />
+                <TodoListFunctions
+                  design="web"
+                  displayTodoHandler={displayTodoHandler}
+                />
                 <button>Clear Completed</button>
               </>
             ) : (
@@ -35,7 +52,12 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
             )}
           </div>
         </div>
-        {todos.length !== 0 && <TodoListFunctions design="mobile" />}
+        {todos.length !== 0 && (
+          <TodoListFunctions
+            design="mobile"
+            displayTodoHandler={displayTodoHandler}
+          />
+        )}
       </div>
       {todos.length !== 0 && (
         <span className={classes.dragAndDrop}>

@@ -1,5 +1,5 @@
 import classes from "./TodoListFunctions.module.css";
-const TodoListFunctions = ({ design }) => {
+const TodoListFunctions = ({ design, displayTodoHandler }) => {
   return (
     <div
       className={
@@ -8,9 +8,27 @@ const TodoListFunctions = ({ design }) => {
           : classes.todoListFunctionsWeb
       }
     >
-      <button>All</button>
-      <button>Active</button>
-      <button>Completed</button>
+      <button
+        onClick={() => {
+          displayTodoHandler("all");
+        }}
+      >
+        All
+      </button>
+      <button
+        onClick={() => {
+          displayTodoHandler("active");
+        }}
+      >
+        Active
+      </button>
+      <button
+        onClick={() => {
+          displayTodoHandler("completed");
+        }}
+      >
+        Completed
+      </button>
     </div>
   );
 };
