@@ -5,6 +5,14 @@
 }
 html {
   font-size: 62.5%;
+  --input-background-color: white;
+  --input-color: black;
+  --todoList-background: #fafafa;
+}
+.dark-theme {
+  --input-background-color: hsl(235, 24%, 19%);
+  --input-color: white;
+  --todoList-background: hsl(235, 21%, 11%);
 }
 body {
   font-family: "Josefin Sans", sans-serif;
@@ -23,7 +31,7 @@ input[type="checkbox"] {
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
-  border: 0.1px solid black;
+  border: 0.1px solid hsl(233, 14%, 35%);
   cursor: pointer;
   display: flex;
   justify-content: center;

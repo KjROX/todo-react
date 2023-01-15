@@ -1,15 +1,29 @@
 import classes from "./Todo.module.css";
 
-const Todo = () => {
+const Todo = ({ todo, todoCheckHandler, todoDeleteHandler }) => {
+  const checkBoxClickHandler = () => {
+    todoCheckHandler(todo.id, !todo.isActive);
+  };
+
+  const crossButtonHandler = () => {
+    todoDeleteHandler(todo.id);
+  };
+
   return (
     <div className={classes.todo}>
       <div className={classes.inputLabel}>
         <div>
-          <input type="checkbox" />
+          <input type="checkbox" onClick={checkBoxClickHandler} />
         </div>
-        <label>Jog around the park</label>
+        <label
+          className={`${classes.todoLabel} ${
+            !todo.isActive ? classes.lineThrough : ""
+          }`}
+        >
+          {todo.content}
+        </label>
       </div>
-      <button>
+      <button onClick={crossButtonHandler}>
         <img src="./images/icon-cross.svg" alt="" />
       </button>
     </div>
