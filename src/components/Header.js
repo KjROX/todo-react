@@ -39,7 +39,7 @@ const Header = ({ todoAddingHandler, theme, themeChanger }) => {
         </div>
         <form className={classes.form} onSubmit={todoSubmitHandler}>
           <div className={classes.inputCheckBox}>
-            <input type="checkbox" />
+            <input type="checkbox" onClick={todoSubmitHandler} />
           </div>
           <input
             type="text"

@@ -13,7 +13,11 @@ const Todo = ({ todo, todoCheckHandler, todoDeleteHandler }) => {
     <div className={classes.todo}>
       <div className={classes.inputLabel}>
         <div>
-          <input type="checkbox" onClick={checkBoxClickHandler} />
+          <input
+            type="checkbox"
+            onClick={checkBoxClickHandler}
+            checked={todo.isActive === false}
+          />
         </div>
         <label
           className={`${classes.todoLabel} ${
