@@ -13,6 +13,10 @@
   font-family: inherit;
   font-weight: bold;
 }
+.todoListFunctionsMobile button:disabled {
+  color: rgba(147, 148, 165, 0.5);
+  pointer-events: none;
+}
 .todoListFunctionsMobile button:hover {
   color: hsl(220, 98%, 61%);
 }

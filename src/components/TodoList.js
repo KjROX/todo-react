@@ -2,6 +2,7 @@ import Todo from "./Todo";
 import classes from "./TodoList.module.css";
 import TodoListFunctions from "./TodoListFunctions";
 import { useState } from "react";
+import { Draggable } from "react-drag-reorder";
 const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
   const numberOfActiveTodos = todos.filter(
     (todo) => todo.isActive === true
@@ -23,14 +24,16 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
     <div className={classes.background}>
       <div className={classes.container}>
         <div className={classes.todos}>
-          {showTodos.map((todo) => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              todoCheckHandler={todoCheckHandler}
-              todoDeleteHandler={todoDeleteHandler}
-            />
-          ))}
+          <Draggable>
+            {showTodos.map((todo) => (
+              <Todo
+                key={todo.id}
+                todo={todo}
+                todoCheckHandler={todoCheckHandler}
+                todoDeleteHandler={todoDeleteHandler}
+              />
+            ))}
+          </Draggable>
           <div className={classes.todoListInfo}>
             {todos.length !== 0 ? (
               <>
@@ -42,6 +45,7 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
                 <TodoListFunctions
                   design="web"
                   displayTodoHandler={displayTodoHandler}
+                  showTodos={showTodos}
                 />
                 <button>Clear Completed</button>
               </>
@@ -56,6 +60,7 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
           <TodoListFunctions
             design="mobile"
             displayTodoHandler={displayTodoHandler}
+            showTodos={showTodos}
           />
         )}
       </div>
