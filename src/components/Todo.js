@@ -28,7 +28,11 @@ const Todo = ({ todo, todoCheckHandler, todoDeleteHandler }) => {
         </label>
       </div>
       <button onClick={crossButtonHandler}>
-        <img src="./images/icon-cross.svg" alt="" />
+        <img
+          style={{ cursor: "pointer" }}
+          src="./images/icon-cross.svg"
+          alt=""
+        />
       </button>
     </div>
   );

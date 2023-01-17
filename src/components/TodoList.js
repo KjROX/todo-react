@@ -1,14 +1,18 @@
 import Todo from "./Todo";
 import classes from "./TodoList.module.css";
 import TodoListFunctions from "./TodoListFunctions";
-import { useState } from "react";
-import { Draggable } from "react-drag-reorder";
+import { useState, useEffect } from "react";
+// import { Draggable } from "react-drag-reorder";
 const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
   const numberOfActiveTodos = todos.filter(
     (todo) => todo.isActive === true
   ).length;
 
   const [showTodos, setShowTodos] = useState(todos);
+
+  useEffect(() => {
+    setShowTodos(todos);
+  }, [todos]);
 
   const displayTodoHandler = (type) => {
     if (type === "all") {
@@ -24,16 +28,15 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
     <div className={classes.background}>
       <div className={classes.container}>
         <div className={classes.todos}>
-          <Draggable>
-            {showTodos.map((todo) => (
-              <Todo
-                key={todo.id}
-                todo={todo}
-                todoCheckHandler={todoCheckHandler}
-                todoDeleteHandler={todoDeleteHandler}
-              />
-            ))}
-          </Draggable>
+          {showTodos.map((todo) => (
+            <Todo
+              key={todo.id}
+              todo={todo}
+              todoCheckHandler={todoCheckHandler}
+              todoDeleteHandler={todoDeleteHandler}
+            />
+          ))}
+
           <div className={classes.todoListInfo}>
             {todos.length !== 0 ? (
               <>
@@ -45,7 +48,7 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
                 <TodoListFunctions
                   design="web"
                   displayTodoHandler={displayTodoHandler}
-                  showTodos={showTodos}
+                  todos={todos}
                 />
                 <button>Clear Completed</button>
               </>
@@ -60,7 +63,7 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
           <TodoListFunctions
             design="mobile"
             displayTodoHandler={displayTodoHandler}
-            showTodos={showTodos}
+            todos={todos}
           />
         )}
       </div>
