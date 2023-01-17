@@ -53,6 +53,12 @@ function App() {
     });
   };
 
+  const clearCompletedTodosHandler = () => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => todo.isActive === true);
+    });
+  };
+
   return (
     <div className={`App ${theme === "darkMode" ? "dark-theme" : ""}`}>
       <Header
@@ -64,6 +70,7 @@ function App() {
         todos={todos}
         todoCheckHandler={todoCheckHandler}
         todoDeleteHandler={todoDeleteHandler}
+        clearCompletedTodosHandler={clearCompletedTodosHandler}
       />
     </div>
   );

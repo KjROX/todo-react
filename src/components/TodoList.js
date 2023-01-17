@@ -2,8 +2,13 @@ import Todo from "./Todo";
 import classes from "./TodoList.module.css";
 import TodoListFunctions from "./TodoListFunctions";
 import { useState, useEffect } from "react";
-// import { Draggable } from "react-drag-reorder";
-const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
+import { Draggable } from "react-drag-reorder";
+const TodoList = ({
+  todos,
+  todoCheckHandler,
+  todoDeleteHandler,
+  clearCompletedTodosHandler,
+}) => {
   const numberOfActiveTodos = todos.filter(
     (todo) => todo.isActive === true
   ).length;
@@ -28,15 +33,16 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
     <div className={classes.background}>
       <div className={classes.container}>
         <div className={classes.todos}>
-          {showTodos.map((todo) => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              todoCheckHandler={todoCheckHandler}
-              todoDeleteHandler={todoDeleteHandler}
-            />
-          ))}
-
+          <Draggable>
+            {showTodos.map((todo) => (
+              <Todo
+                key={todo.id}
+                todo={todo}
+                todoCheckHandler={todoCheckHandler}
+                todoDeleteHandler={todoDeleteHandler}
+              />
+            ))}
+          </Draggable>
           <div className={classes.todoListInfo}>
             {todos.length !== 0 ? (
               <>
@@ -50,7 +56,12 @@ const TodoList = ({ todos, todoCheckHandler, todoDeleteHandler }) => {
                   displayTodoHandler={displayTodoHandler}
                   todos={todos}
                 />
-                <button>Clear Completed</button>
+                <button
+                  style={{ cursor: "pointer" }}
+                  onClick={clearCompletedTodosHandler}
+                >
+                  Clear Completed
+                </button>
               </>
             ) : (
               <span className={classes.nothingTodo}>
