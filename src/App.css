@@ -23,7 +23,8 @@ button {
 }
 .App {
   font-size: 1.2rem;
-  min-height: 100%;
+  min-height: 100vh;
+  background-color: var(--todoList-background);
 }
 input[type="checkbox"] {
   appearance: none;

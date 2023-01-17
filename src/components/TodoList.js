@@ -3,6 +3,7 @@ import classes from "./TodoList.module.css";
 import TodoListFunctions from "./TodoListFunctions";
 import { useState, useEffect } from "react";
 import { Draggable } from "react-drag-reorder";
+
 const TodoList = ({
   todos,
   todoCheckHandler,
@@ -33,7 +34,7 @@ const TodoList = ({
     <div className={classes.background}>
       <div className={classes.container}>
         <div className={classes.todos}>
-          <Draggable>
+          <Draggable key={`${showTodos}-${numberOfActiveTodos}`}>
             {showTodos.map((todo) => (
               <Todo
                 key={todo.id}

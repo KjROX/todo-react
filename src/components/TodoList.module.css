@@ -1,5 +1,4 @@
 .background {
-  background-color: var(--todoList-background);
   min-height: 70vh;
 }
 .container {
