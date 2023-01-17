@@ -20,6 +20,9 @@
   color: white;
   letter-spacing: 1rem;
 }
+.title button{
+  cursor: pointer;
+}
 .form {
   width: 100%;
   background-color: var(--input-background-color);
